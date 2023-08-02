@@ -16,6 +16,7 @@ public abstract class Case {
         this.model = model;
         this.manufacturer = manufacturer;
         this.powerSupply = powerSupply;
+        this.dimensions = dimensions;
     }
 
     public abstract void pressPowerButton();

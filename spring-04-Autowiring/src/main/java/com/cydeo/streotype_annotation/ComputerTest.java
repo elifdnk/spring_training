@@ -9,5 +9,6 @@ public class ComputerTest {
 
         ApplicationContext container = new AnnotationConfigApplicationContext(PcConfig.class);
         PC myPc = container.getBean(PC.class);
+        System.out.println(myPc.getTheCase().getDimensions().getDepth());
     }
 }

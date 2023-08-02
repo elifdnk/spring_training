@@ -7,17 +7,17 @@ import org.springframework.stereotype.Component;
 
 @Getter
 @Setter
-@AllArgsConstructor
+//@AllArgsConstructor
 @Component
 public class Dimensions {
     private  int width;
     private int height;
     private int depth;
 
-    public Dimensions(int width, int height, int depth) {
-        this.width = width;
-        this.height = height;
-        this.depth = depth;
+    public Dimensions() {
+        this.width = 10;
+        this.height = 30;
+        this.depth = 40;
     }
 
     public void pressPowerButton(){

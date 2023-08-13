@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mentor</title>
+</head>
+<body>
+
+<table border="1px solid black">
+    <thead>
+    <tr>
+        <td>First Name</td>
+        <td> Last Name</td>
+        <td> Age</td>
+        <td> Gender</td>
+    </tr>
+    </thead>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${mentors.get(0).getFirstName()}"></td>
+        <td th:text="${mentors.get(0).getLastName()}"></td>
+        <td th:text="${mentors.get(0).getAge()}"></td>
+        <td th:text="${mentors.get(0).getGender()}"></td>
+    </tr>
+    <tr>
+        <td th:text="${mentors.get(1).getFirstName()}"></td>
+        <td th:text="${mentors.get(1).getLastName()}"></td>
+        <td th:text="${mentors.get(1).getAge()}"></td>
+        <td th:text="${mentors.get(1).getGender()}"></td>
+    </tr>
+    <tr>
+        <td th:text="${mentors.get(2).getFirstName()}"></td>
+        <td th:text="${mentors.get(2).getLastName()}"></td>
+        <td th:text="${mentors.get(2).getAge()}"></td>
+        <td th:text="${mentors.get(2).getGender()}"></td>
+    </tr>
+    </tbody>
+
+</table>
+
+</body>
+</html>

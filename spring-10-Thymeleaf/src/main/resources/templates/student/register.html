@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+<!--Display Value of model-->
+<h2 th:text="${students.get(0).getFirstName()}"></h2>
+<h2 th:text="${students.get(0).getLastName()}"></h2>
+
+<!--Concatenation-->
+<h2 th:text="${'Hello! ' + students.get(0).getFirstName()}"></h2>
+<h2 th:text="${students.get(0).getFirstName() + ' ' + students.get(0).getLastName()}"></h2>
+
+<!--Link-->
+<h2> <a th:href="@{https://cydeo.com}"> Cydeo Page </a> </h2>
+<h2> <a th:href="@{/student/welcome}"> Welcome </a> </h2>
+
+<!--Adding Parameters in Link-->
+<h2> <a th:href="@{/student/welcome(id=3)}">Link1</a> </h2>
+
+<h2> <a th:href="@{/student/welcome(name=${students.get(0).firstName})}">Link2</a> </h2>
+
+<!--Iteration-->
+<h2> Printing student list</h2>
+<ol>
+    <li  th:each=" student : ${students}" th:text="${student}"></li>
+</ol>
+
+<h2>Printing students first name list</h2>
+<ol>
+    <li th:each="student : ${students}" th:text="${student.getFirstName()}"></li>
+</ol>
+
+<h2>Printing students last name list</h2>
+<ol>
+    <li th:each="student : ${students}" th:text="${student.getLastName()}"></li>
+</ol>
+
+<h2>Printing students in table</h2>
+<table border="5 px">
+    <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Age</td>
+        <td>State</td>
+    </tr>
+
+    <tr th:each="student : ${students}">
+        <td th:text="${student.getFirstName()}"></td>
+        <td th:text="${student.getLastName()}"></td>
+        <td th:text="${student.getAge()}"></td>
+        <td th:text="${student.getState()}"></td>
+    </tr>
+
+</table>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cydeo</title>
+</head>
+<body>
+
+<div>
+
+    <form th:object="${mentor}">
+        <label>First Name:</label>
+        <input type="text" th:field="*{firstName}">
+
+        <label>Last Name:</label>
+        <input type="text" th:field="*{lastName}">
+
+
+
+
+
+
+    </form>
+
+</div>
+
+</body>
+</html>

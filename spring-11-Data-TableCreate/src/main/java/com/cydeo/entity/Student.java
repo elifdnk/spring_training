@@ -1,7 +1,12 @@
 package com.cydeo.entity;
 
 
+import com.cydeo.enums.Gender;
 import jakarta.persistence.*;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Entity
 public class Student {
@@ -14,4 +19,15 @@ public class Student {
     @Column(name = "studentLastName")
     private String lastName;
     private String email;
+
+    @Column(columnDefinition = "DATE")
+    private LocalDate birthDate;
+    @Column(columnDefinition = "TIME")
+    private LocalTime birthTime;
+    @Column(columnDefinition = "TIMESTAMP")
+    private LocalDateTime birthDateTime;
+
+    @Enumerated(EnumType.STRING)
+    // @Enumerated(EnumType.ORDINAL)
+    private Gender gender;
 }

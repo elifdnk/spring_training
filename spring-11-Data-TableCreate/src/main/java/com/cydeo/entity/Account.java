@@ -1,13 +1,10 @@
 package com.cydeo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
-@Entity
+@MappedSuperclass
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

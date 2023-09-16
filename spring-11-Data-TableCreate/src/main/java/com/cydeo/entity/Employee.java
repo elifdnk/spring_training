@@ -1,11 +1,24 @@
 package com.cydeo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.cydeo.enums.Gender;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
 
 @Entity
-public class Employee {
-    @Id
-    private int id;
-    private String name;
+@Table(name = "employees")
+@NoArgsConstructor
+@AllArgsConstructor
+public class Employee extends BaseEntity{
+
+    private String firstName;
+    private String lastName;
+    private String email;
+    @Column(name = "DATE")
+    private LocalDate hireDate;
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+    private int salary;
 }

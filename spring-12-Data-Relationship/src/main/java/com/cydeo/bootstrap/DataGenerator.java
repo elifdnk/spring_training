@@ -3,6 +3,7 @@ package com.cydeo.bootstrap;
 import com.cydeo.entity.Payment;
 import com.cydeo.entity.PaymentDetail;
 import com.cydeo.enums.Status;
+import com.cydeo.repository.PaymentRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -11,6 +12,12 @@ import java.time.LocalDate;
 
 @Component
 public class DataGenerator implements CommandLineRunner {
+
+    private final PaymentRepository paymentRepository;
+
+    public DataGenerator(PaymentRepository paymentRepository) {
+        this.paymentRepository = paymentRepository;
+    }
 
     @Override
     public void run(String... args) throws Exception {
@@ -24,5 +31,7 @@ public class DataGenerator implements CommandLineRunner {
 
         payment2.setPaymentDetail(paymentDetail2);
 
+        paymentRepository.save(payment1);
+        paymentRepository.save(payment2);
     }
 }

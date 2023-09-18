@@ -33,5 +33,12 @@ public class DataGenerator implements CommandLineRunner {
 
         paymentRepository.save(payment1);
         paymentRepository.save(payment2);
+
+        System.out.println(paymentRepository.findById(2L).get().getPaymentDetail().getCommissionAmount());
+
+        paymentRepository.delete(payment1);
+
+
+
     }
 }

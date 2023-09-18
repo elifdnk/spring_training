@@ -23,7 +23,7 @@ public class PaymentDetail {
     @Column(columnDefinition = "DATE")
     private LocalDate payoutDate;
 
-    @OneToOne(mappedBy = "paymentDetail")
+    @OneToOne(mappedBy = "paymentDetail")  //when we dont want to create new foreign key. we use mappedBy
     private Payment payment;
 
 

@@ -22,7 +22,7 @@ public class Account extends BaseEntity {
     private Integer age;
     private String postalCode;
     @Enumerated(EnumType.STRING )
-    private UserRole userRole;
+    private UserRole role;
 
     private User user;
 }

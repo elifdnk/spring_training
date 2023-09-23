@@ -9,5 +9,9 @@ public interface RegionRepository extends JpaRepository<Region,Long> {
 
     //Display all regions in Canada
    List<Region> findByCountry(String country);
+   List<Region> getByCountry(String country);
+
+   //Display all regions with country name includes 'United'
+    List<Region> findByCountryContaining(String country);
 
 }

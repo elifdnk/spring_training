@@ -61,6 +61,41 @@ public interface EmployeeRepository extends JpaRepository<Employee,Long> {
     @Query("SELECT e FROM Employee e WHERE e.firstName LIKE ?1")
     List<Employee> retrieveEmployeeFirstNameLike(String pattern);
 
+    //Less Than
+    @Query("SELECT e FROM Employee e WHERE e.salary < ?1")
+    List<Employee> retrieveEmployeeSalaryLessThan(int salary);
+
+    //Grater Than
+    @Query("SELECT e.firstName FROM Employee e WHERE e.salary > ?1")
+    List<String> retrieveEmployeeSalaryGreaterThan(int salary);
+
+    //Between
+    @Query("SELECT e FROM Employee e WHERE e.salary BETWEEN ?1 AND ?2")
+    List<Employee> retrieveEmployeeSalaryBetween(int salary1,int salary2);
+
+    //BEFORE
+    @Query("SELECT e FROM Employee e WHERE e.hireDate > ?1")
+    List<Employee> retrieveEmployeeHireDateBefore(LocalDate date);
+
+    //NULL
+    @Query("SELECT e FROM Employee e WHERE e.email IS NULL")
+    List<Employee> retrieveEmployeeEmailIsNull();
+
+    //NOTNULL
+    @Query("SELECT e FROM Employee e WHERE e.email IS NOT NULL")
+    List<Employee> retrieveEmployeeEmailIsNotNull();
+
+    //SORTING Asc Order
+    @Query("SELECT e FROM Employee e ORDER BY e.salary ")
+    List<Employee> retrieveEmployeeSalaryOrderAsc();
+
+    //SORTING Desc Order
+    @Query("SELECT e FROM Employee e  ORDER BY e.salary DESC")
+    List<Employee> retrieveEmployeeSalaryOrderDesc();
+
+    //
+
+
 
 
 

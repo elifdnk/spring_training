@@ -19,6 +19,6 @@ public class Spring13DataCinemaLabApplication {
         return Flyway.configure().baselineOnMigrate(true).dataSource(dataSource).load().migrate();
     }
     //put his method here first entity is gonna be created then migration is gonna be start
-    //we put this, because; it gonna take what application sets date source
+    //we put this, because; it gonna take what application sets data source
 
 }

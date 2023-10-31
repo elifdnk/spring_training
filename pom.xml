@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring-05-Core-Abstraction</module>
+        <module>spring-17-REST-ConsumingAPIs</module>
     </modules>
 
     <properties>

@@ -10,4 +10,5 @@ public interface EmployeeClient {
 
     @GetMapping("/data/v1/user?limit=10")
     Employee getEmployee(@RequestHeader("app-id") String id);
+    //if we want to pass any header to the consuming part, we are using @RequestHeader.
 }

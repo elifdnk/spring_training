@@ -16,6 +16,7 @@ import reactor.core.publisher.Mono;
 public class Consume_WebClient {
 
     private WebClient webClient = WebClient.builder().baseUrl("http://localhost:8080").build();
+    //why we put here localhost:8080 -> I consume mine own API
 
     private final MovieCinemaService movieCinemaService;
     private final GenreService genreService;
@@ -25,10 +26,11 @@ public class Consume_WebClient {
         this.genreService = genreService;
     }
 
+    //create APIs with reactive way. how do we do that? using Flux and Mono.
     @GetMapping("/flux-movie-cinemas")
-    public Flux<MovieCinemaDTO> readAllCinemaFlux(){
+    public Flux<MovieCinemaDTO> readAllCinemaFlux(){ //Flux: more than one movieCinemaDTO
 
-        return Flux.fromIterable(movieCinemaService.findAll());
+        return Flux.fromIterable(movieCinemaService.findAll()); //
 
     }
 
@@ -39,8 +41,8 @@ public class Consume_WebClient {
 //
 //    }
 
-    @GetMapping("/mono-movie-cinema/{id}")
-    public ResponseEntity<Mono<MovieCinemaDTO>> readById(@PathVariable("id") Long id){
+    @GetMapping("/mono-movie-cinema/{id}")  //this method familiar to upper readById method. we can use ResponseEntity or Mono.
+    public ResponseEntity<Mono<MovieCinemaDTO>> readById(@PathVariable("id") Long id){ //mono only one object
 
         return ResponseEntity.ok(Mono.just(movieCinemaService.findById(id)));
 
@@ -69,12 +71,12 @@ public class Consume_WebClient {
     @GetMapping("/flux")
     public Flux<MovieCinemaDTO> readWithWebClient(){
 
-        return webClient
+        return webClient  //consume with webClient
                 .get()
                 .uri("/flux-movie-cinemas")
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .retrieve()
-                .bodyToFlux(MovieCinemaDTO.class);
+                .bodyToFlux(MovieCinemaDTO.class);  //output is endpoint more than one.
 
     }
 

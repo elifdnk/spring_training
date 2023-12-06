@@ -29,7 +29,7 @@ class UserServiceImplTest {
 
 
     @Test
-    void findByUserNAme_Test(){
+    void findByUserName_Test(){
 
         //I'm calling the real method inside the main,which is the method I want to test
         userService.findByUserName("harold@manager.com");
@@ -43,14 +43,18 @@ class UserServiceImplTest {
         verify(userRepository,atLeastOnce()).findByUserNameAndIsDeleted("harold@manager.com",false);
 
         //this method at least 2 times
-        verify(userRepository,atLeast(2)).findByUserNameAndIsDeleted("harold@manager.com",false);
+        verify(userRepository,atLeast(1)).findByUserNameAndIsDeleted("harold@manager.com",false);
 
 
         verify(userRepository,atMostOnce()).findByUserNameAndIsDeleted("harold@manager.com",false);
         verify(userRepository,atMost(10)).findByUserNameAndIsDeleted("harold@manager.com",false);
 
 
+        //in findByUserName  method; who run first userRepository or userMapper?
         InOrder inOrder = inOrder(userRepository,userMapper);
+
+        inOrder.verify(userRepository).findByUserNameAndIsDeleted("harold@manager.com",false);
+        inOrder.verify(userMapper).convertToDto(null);
 
 
 
